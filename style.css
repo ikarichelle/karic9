@@ -1,0 +1,14 @@
+body {
+    font-size: 12px;
+    color: #333;
+}
+
+.spinner {
+    display: none;
+    text-align: center;
+    margin: auto;
+}
+
+.spinner h2 {
+    font-size: 32px;
+}
