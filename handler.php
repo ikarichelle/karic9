@@ -2,7 +2,7 @@
 
     require('socket.php');
     
-    $key ='AIzaSyBtw_qMkQGcRrhK8gklOAJ_iy_QucgZoTA';
+    $key ='AIzaSyBnBoHu3DORr1B5Amg1WqgG0X4r9VR50vo';
     
     if (!empty($_POST['action'])) {
         switch($_POST['action']) {
@@ -43,6 +43,7 @@
     {
         global $connection;
         $query = "SELECT * FROM cModel WHERE makeId=".$makeId;
+        
         $result = mysqli_query($connection, $query);
         
         $models = mysqli_fetch_all($result);
@@ -50,7 +51,7 @@
         echo json_encode($models);
     }
     
-    function findCarEngines($makeId, $modelId)
+    function findCarEngines($makeId, $cModelId)
     {
         global $connection;
         
@@ -169,7 +170,7 @@
     function getDealerDetails($id)
     {
         // global $key;
-        $key = 'AIzaSyDUOPJrPAU0B_oU3mekcSNfGSyB4c1w_1o';
+        $key = 'AIzaSyBnBoHu3DORr1B5Amg1WqgG0X4r9VR50vo';
         
         $url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=$id&key=$key";
         

@@ -11,7 +11,7 @@
             <title>.$title</title>
             </head>
             <body>
-            <link rel='stylesheet' type='text/css' href='advanced.css'>";
+            <link rel='stylesheet' type='text/css' href='style.css'>";
             return $result;
         }
         
@@ -20,7 +20,7 @@
             $result =
                     '</body>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                    <script src="scripts.js"></script>
+                    <script src="script.js"></script>
                 </html>';
             return $result;
         }

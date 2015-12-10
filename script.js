@@ -16,23 +16,26 @@ $(document).ready(function() {
     $('.ajax-fun').submit(function(event) {
         event.preventDefault();
         
-        name = $('#name').val();
-        zipcode = $('#zipcode').val();
-        
         var allthere = validate(event);
+        
         var bestMode = ($('#best-phone').prop('checked')) ? 'phone' : 'email';
-    
-        var data = {
-            action: 'save',
-            make: $('#makes').val(),
-            model: $('#models').val(),
-            engine: $('#engines').val(),
-            name: name,
-            phone: $('#phone').val(),
-            email: $('#email').val(),
-            zipcode: zipcode,
-            best: bestMode,
-        };
+        
+    if (allthere) {
+        
+            name = $('#name').val();
+            zipcode = $('#zipcode').val();
+            
+            var data = {
+                action: 'save',
+                make: $('#makes').val(),
+                model: $('#models').val(),
+                engine: $('#engines').val(),
+                name: name,
+                phone: $('#phone').val(),
+                email: $('#email').val(),
+                zipcode: zipcode,
+                best: bestMode,
+            };
         
         $.ajax({
             url: 'handler.php',
@@ -40,22 +43,17 @@ $(document).ready(function() {
             data: data,
             cache: false,
             dataType: 'json',
-            success: function(data, textStatus, jqXHR) {
-                console.log(data);
-                console.log(textStatus);
-                
-                getGeoCode(data.zipcode);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log('Error!');
-                console.log(textStatus);
-                console.log(errorThrown);
-                //do something here on error
-            }
-        });
-        
+                success: function(data, textStatus, jqXHR) {
+                    getGeoCode(data.zipcode);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('Error!');
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+        }
     });
-    
     
     
     function getCarMakes()
@@ -69,7 +67,6 @@ $(document).ready(function() {
             cache: false,
             dataType: 'json',
             success: function(data, textStatus, jqXHR) {
-                console.log(data);
                 
                 var makes = '<option value="">Choose Make...</option>';
                 
@@ -84,7 +81,6 @@ $(document).ready(function() {
                 console.log('Error!');
                 console.log(textStatus);
                 console.log(errorThrown);
-                //do something here on error
             }
         });
     }
@@ -101,7 +97,6 @@ $(document).ready(function() {
             cache: false,
             dataType: 'json',
             success: function(data, textStatus, jqXHR) {
-                console.log(data);
                 
                 var models = '<option value="">Choose Model...</option>';
                 
@@ -116,31 +111,23 @@ $(document).ready(function() {
                 console.log('Error!');
                 console.log(textStatus);
                 console.log(errorThrown);
-                //do something here on error
             }
         });
     }
     
-    function getCarEngines(makeId, modelId)
+    function getCarEngines(makeId, cModelId)
     {
-        console.log("Make ID:");
-        console.log(makeId);
-        
-        console.log("Model ID:");
-        console.log(modelId);
-        
         $.ajax({
             url: 'handler.php',
             type: 'POST',
             data: {
                 action: 'engines',
                 make: makeId,
-                model: modelId,
+                model: cModelId,
             },
             cache: false,
             dataType: 'json',
             success: function(data, textStatus, jqXHR) {
-                console.log(data);
                 
                 var models = '<option value="">Choose Engine...</option>';
                 
@@ -156,7 +143,6 @@ $(document).ready(function() {
                 console.log('Error!');
                 console.log(textStatus);
                 console.log(errorThrown);
-                //do something here on error
             }
         });
     }

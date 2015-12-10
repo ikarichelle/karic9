@@ -1,14 +1,83 @@
 body {
-    font-size: 12px;
+    font-size: 16px;
     color: #333;
+    background-color: seashell;
 }
 
-.spinner {
-    display: none;
-    text-align: center;
-    margin: auto;
+h1 {
+    font-size: 30px;
 }
 
-.spinner h2 {
+select {
+    display: block;
+}
+
+input[type="submit"] {
+    padding: 20px 40px;
+    background-color: green;
+    color: #fff;
     font-size: 32px;
+}
+
+/*.spinner {*/
+/*    display: none;*/
+/*    text-align: center;*/
+/*    margin: auto;*/
+/*}*/
+
+/*.spinner h2 {*/
+/*    font-size: 32px;*/
+/*    color: navy;*/
+/*}*/
+
+.error {
+    display: none;
+    color: red;
+}
+
+h1.greeting,
+h2.zip-statement,
+.list {
+    display: none;
+}
+
+h1.greeting {
+    color: green;    
+    margin-bottom: 5px;
+}
+
+h2.zip-statement {
+    color: red;
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.list {
+    font-size: 14px;
+}
+
+ul.dealer {
+    list-style-type: none;
+}
+
+li.name {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+li.addy {
+    font-size: 16px;
+}
+
+li.phone {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.submitFile {
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    color: #007A99;
+    background-color: white;
 }
