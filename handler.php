@@ -2,7 +2,7 @@
 
     require('socket.php');
     
-    $key ='AIzaSyBnBoHu3DORr1B5Amg1WqgG0X4r9VR50vo';
+    $key ='AIzaSyB_Xm6oxqXtxjrf5Mv-RS2NU3ouJcSjzYE';
     
     if (!empty($_POST['action'])) {
         switch($_POST['action']) {
@@ -129,6 +129,11 @@
         
         if ($response['status'] == 'OK') {
             $geometry = $response['results'][0]['geometry']['location'];
+            
+            $result = array(
+                'lat'     => $geometry['lat'],
+                'lng'     => $geometry['lng'],
+            );
         
             $list = getDealerList($geometry['lat'], $geometry['lng']);
             
@@ -169,7 +174,7 @@
     
     function getDealerDetails($id)
     {
-        // global $key;
+        
         $key = 'AIzaSyBnBoHu3DORr1B5Amg1WqgG0X4r9VR50vo';
         
         $url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=$id&key=$key";

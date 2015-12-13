@@ -45,6 +45,15 @@ $(document).ready(function() {
             dataType: 'json',
                 success: function(data, textStatus, jqXHR) {
                     getGeoCode(data.zipcode);
+                
+                // var greeting = "Thank you " + name + "!";
+                // var zipState = "Here are the closest car dealerships to your " + zipcode + " zipcode.";
+                // var list = "";
+                
+                // $('.ajax-fun').hide();
+                // $('h1.greeting').html(greeting).show();
+                // $('h2.zip-statement').html(zipState).show();
+                // $('.list').html(list).show();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Error!');
